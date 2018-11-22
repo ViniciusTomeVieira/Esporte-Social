@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "297715995740",
+    "firebase_url": "https://esportesocial-261ab.firebaseio.com",
+    "project_id": "esportesocial-261ab",
+    "storage_bucket": "esportesocial-261ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297715995740:android:1e6191b2a1d34f0b",
+        "android_client_info": {
+          "package_name": "com.vieira.vinny.cardview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297715995740-335sm2pojl783lr7dku8hok2diioki2m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vieira.vinny.cardview",
+            "certificate_hash": "c8150dbac36dbf309477d8290589dc33e898d960"
+          }
+        },
+        {
+          "client_id": "297715995740-k8v6kp36qhal63a52eejihonj4pbj8hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj5ckYjrgZchjQArkSxYjjJamuclo-HKg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297715995740-k8v6kp36qhal63a52eejihonj4pbj8hm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
