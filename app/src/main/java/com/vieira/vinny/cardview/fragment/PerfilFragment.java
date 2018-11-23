@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.activity.EditarPerfilActivity;
+import com.vieira.vinny.cardview.helper.UsuarioFirebase;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -22,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PerfilFragment extends Fragment {
         private ProgressBar progressBar;
         private CircleImageView imagePerfil;
-        private TextView textNivel, textAmigos, textPartidas;
+        private TextView textNivel, textAmigos, textPartidas, textNomeUsuario;
         private Button buttonEditarPerfil;
 
     public PerfilFragment() {
@@ -44,6 +46,10 @@ public class PerfilFragment extends Fragment {
         textAmigos = view.findViewById(R.id.textAmigos);
         textPartidas = view.findViewById(R.id.textPartidas);
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
+        textNomeUsuario = view.findViewById(R.id.textNomeUsuario);
+
+        FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
+        textNomeUsuario.setText(usuarioPerfil.getDisplayName());
 
         // Abre a edição de perfil
 

@@ -17,6 +17,6 @@
         android:title="Loja" />
 
     <item android:id="@+id/ic_configuracoes"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Configuracoes" />
+        android:icon="@drawable/ic_perfil_black_24dp"
+        android:title="Perfil" />
 </menu>
