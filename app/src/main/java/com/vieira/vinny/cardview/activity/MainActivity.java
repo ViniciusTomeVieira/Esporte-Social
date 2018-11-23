@@ -19,8 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.adapter.PostagemAdapter;
-import com.vieira.vinny.cardview.fragment.AgendaFragment;
-import com.vieira.vinny.cardview.fragment.ConfigFragment;
+import com.vieira.vinny.cardview.fragment.CriarPartidaFragment;
 import com.vieira.vinny.cardview.fragment.FeedFragment;
 import com.vieira.vinny.cardview.fragment.LojaFragment;
 import com.vieira.vinny.cardview.fragment.PerfilFragment;
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.ic_home: fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit(); return true;
-                    case R.id.ic_calendario: fragmentTransaction.replace(R.id.viewPager, new AgendaFragment()).commit(); return true;
+                    case R.id.ic_calendario: fragmentTransaction.replace(R.id.viewPager, new CriarPartidaFragment()).commit(); return true;
                     case R.id.ic_torneio: fragmentTransaction.replace(R.id.viewPager, new TorneioFragment()).commit(); return true;
                     case R.id.ic_loja: fragmentTransaction.replace(R.id.viewPager, new LojaFragment()).commit(); return true;
                     case R.id.ic_configuracoes: fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit(); return true;
@@ -145,20 +144,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void prepararPostagens(){
-        Postagem p = new Postagem("Vinicius Vieira","Vão td tnc porra",R.drawable.imagem1);
-        this.postagens.add(p);
 
-        p = new Postagem("Eduardo Woloszyn","Pau no cu do Mantau",R.drawable.imagem2);
-        this.postagens.add(p);
-
-        p = new Postagem("Kezia Melo","#procurandoumpaiprosmeusfilhos",R.drawable.imagem3);
-        this.postagens.add(p);
-
-        p = new Postagem("Kethryn Starke","Eu ainda naum sei screver",R.drawable.imagem4);
-        this.postagens.add(p);
-
-        p = new Postagem("Marcio José Mantau","Fazendo um projetinho",R.drawable.imagem2);
-        this.postagens.add(p);
     }
 
     public void selecionarTela(View view){

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
@@ -26,7 +27,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textLocal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Agora mesmo" />
@@ -51,35 +52,88 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textPostagem"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_comentario_cinza_24dp"
-                        android:paddingLeft="20dp"
-                        android:text="Vão td tnc seus trouxa" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/desq"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_add_box_black_24dp"
-                        android:paddingLeft="20dp"
-                        android:text="Horario: 17 e 30" />
+                        <TextView
+                            android:id="@+id/labelDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_comentario_cinza_24dp"
+                            android:paddingLeft="20dp" />
 
-                    <TextView
-                        android:id="@+id/desq2"
+                        <TextView
+                            android:id="@+id/textDescricao"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="TextView"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/labelHorario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_add_box_black_24dp"
+                            android:paddingLeft="20dp"
+                            android:text="Horario:"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textHorario"
+                            android:layout_width="155dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="TextView"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_expand_more_black_24dp"
-                        android:paddingLeft="20dp"
-                        android:text="Pessoas: 7/8" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/labelPessoas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_expand_more_black_24dp"
+                            android:paddingLeft="20dp"
+                            android:text="Pessoas:"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textPessoas"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:text="TextView"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -92,7 +146,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonVerMais"
                 style="?attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +159,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonParticipar"
                 style="?attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
