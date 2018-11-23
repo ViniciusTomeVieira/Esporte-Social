@@ -22,7 +22,8 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class FeedFragment extends Fragment {
-
+    private RecyclerView recyclerPostagem;
+    private List<Postagem> postagens = new ArrayList<>();
     public FeedFragment() {
         // Required empty public constructor
     }
@@ -32,10 +33,17 @@ public class FeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+
+        recyclerPostagem = view.findViewById(R.id.recyclerPostagem);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerPostagem.setLayoutManager(layoutManager);
+        PostagemAdapter adapter = new PostagemAdapter(postagens);
+        recyclerPostagem.setAdapter(adapter);
 
 
-
-        return inflater.inflate(R.layout.fragment_feed, container, false);
+        return view;
 
     }
 

@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.vieira.vinny.cardview.model.Usuario;
 
 public class UsuarioFirebase {
 
@@ -36,5 +37,21 @@ public class UsuarioFirebase {
             e.printStackTrace();
         }
 
+    }
+    public static Usuario getDadosUsuarioLogado(){
+
+        FirebaseUser firebaseUser = getUsuarioAtual();
+
+        Usuario usuario = new Usuario();
+        usuario.setEmail(firebaseUser.getEmail());
+        usuario.setNome(firebaseUser.getDisplayName());
+        usuario.setId(firebaseUser.getUid());
+
+        if(firebaseUser.getPhotoUrl() == null){
+            usuario.setCaminhoFoto("");
+        }else{
+            usuario.setCaminhoFoto(firebaseUser.getPhotoUrl().toString());
+        }
+        return  usuario;
     }
 }
