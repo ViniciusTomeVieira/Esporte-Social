@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 import com.vieira.vinny.cardview.R;
 
@@ -14,7 +15,7 @@ import com.vieira.vinny.cardview.R;
  */
 public class AgendaFragment extends Fragment {
 
-
+    private CalendarView calendario;
     public AgendaFragment() {
         // Required empty public constructor
     }
@@ -24,6 +25,14 @@ public class AgendaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
+
+
+
+
+
+
         return inflater.inflate(R.layout.fragment_agenda, container, false);
     }
 
