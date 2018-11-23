@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:drawableLeft="@drawable/ic_participar_black_24dp"
+                android:drawableLeft="@drawable/ic_add_24dp"
                 android:drawableTint="@color/colorAccent"
                 android:text="participar"
                 android:textColor="@color/colorAccent"

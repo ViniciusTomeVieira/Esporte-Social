@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent" android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_loja">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_loja"
         android:orientation="vertical"
         tools:context=".fragment.LojaFragment">
 
@@ -14,10 +17,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:padding="10dp"
             android:text="Seja premium e desfrute de todos os recursos!"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -27,10 +31,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="50dp"
-            android:drawableLeft="@drawable/ic_participar_black_24dp"
-            android:drawableTint="@android:color/holo_green_light"
+            android:drawableLeft="@drawable/ic_add_24dp"
             android:drawablePadding="2dp"
+            android:drawableTint="@android:color/holo_green_light"
             android:text="Usuários premium podem criar torneios!"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
         <TextView
@@ -39,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:text="Já imaginou criar uma partidas que possua várias partidas? Esse é o momento!!"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
 
         <TextView
@@ -51,6 +57,7 @@
             android:drawablePadding="2dp"
             android:drawableTint="@android:color/holo_green_light"
             android:text="Usuários premium não assistem anúncios!"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
         <TextView
@@ -59,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:text="Não gosta de assistir anúncios? Com o EsporteSocialPremium você nunca verá!"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
 
         <TextView
@@ -67,10 +75,32 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="30dp"
-            android:drawableLeft="@drawable/ic_ad_24dp"
+            android:drawableLeft="@drawable/ic_xp_24dp"
             android:drawablePadding="2dp"
             android:drawableTint="@android:color/holo_green_light"
-            android:text="Usuários premium não assistem anúncios!"
+            android:text="Usuários premium ganham XP extra!"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Quer ter um nível maior que o de seus amigos? Assine o premium!"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Assinar premium"
+            android:textColor="#AB82FF"
             android:textStyle="bold" />
 
     </LinearLayout>
