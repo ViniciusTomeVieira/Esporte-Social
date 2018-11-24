@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Configurar bottomNavigation
         configuraBottomNavigationView();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentManager  = getSupportFragmentManager();
+        FragmentTransaction frafragmentManagergmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
 
 
