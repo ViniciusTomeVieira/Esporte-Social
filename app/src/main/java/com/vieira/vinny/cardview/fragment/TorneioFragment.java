@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.adapter.TorneioAdapter;
@@ -23,6 +24,7 @@ public class TorneioFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Torneio> listTorneio = new ArrayList<Torneio>();
     private Torneio torneio;
+    private EditText etBusca;
 
     public TorneioFragment() {
         // Required empty public constructor
