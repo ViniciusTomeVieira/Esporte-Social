@@ -81,7 +81,7 @@ public class CriarPartidaFragment extends Fragment {
                 try{
                     if(local != null && descricao != null && quantidade != null && horario != null){
                         progressBar.setVisibility(View.GONE);
-                        referencia.child("partidas").child(usuarioPerfil.getUid()).setValue(partida);
+                        referencia.child("partidas").child("partida").setValue(partida);
                         Toast.makeText(getActivity(), "Partida cadastrada!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getActivity(),MainActivity.class));
                     }else{
