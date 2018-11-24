@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +28,7 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder>{
     private List<Postagem> postagens;
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private Context context;
+    public Button botaoVerMais;
 
     public AdapterFeed(List<Postagem> p, Context context ) {
         this.postagens = p;
@@ -47,7 +50,6 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder>{
         myViewHolder.textDescricao.setText(postagem.getDescricao());
         myViewHolder.textHorario.setText(postagem.getHorario());
         myViewHolder.textPessoas.setText(postagem.getQuantidadeJogadores());
-        myViewHolder.imagePostagem.setImageResource(postagem.getImagem());
     }
 
     @Override
@@ -55,14 +57,14 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder>{
         return postagens.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-         TextView textNome;
-         TextView textLocal;
-         ImageView imagePostagem;
-         TextView textDescricao;
-         TextView textHorario;
-         TextView textPessoas;
+        TextView textNome;
+        TextView textLocal;
+        TextView textDescricao;
+        TextView textHorario;
+        TextView textPessoas;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,9 +73,10 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder>{
             textDescricao = itemView.findViewById(R.id.textDescricao);
             textHorario = itemView.findViewById(R.id.textHorario);
             textPessoas = itemView.findViewById(R.id.textPessoas);
-            imagePostagem = itemView.findViewById(R.id.imagePostagem);
+            botaoVerMais = itemView.findViewById(R.id.buttonVerMais);
         }
     }
+
 
 
 

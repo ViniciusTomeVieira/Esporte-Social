@@ -78,12 +78,9 @@ public class FeedFragment extends Fragment {
         partidasRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    Postagem p = ds.getValue(Postagem.class);
-                    listaFeedInterna.add(p);
 
-                }
-                
+                    Postagem p = dataSnapshot.getValue(Postagem.class);
+                    listaFeedInterna.add(p);
 
 
             }

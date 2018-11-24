@@ -25,7 +25,7 @@ public class PerfilFragment extends Fragment {
         private ProgressBar progressBar;
         private CircleImageView imagePerfil;
         private TextView textNivel, textAmigos, textPartidas, textNomeUsuario;
-        private Button buttonEditarPerfil;
+        private Button buttonEditarPerfil, buttonAbrirLoja;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -46,6 +46,7 @@ public class PerfilFragment extends Fragment {
         textAmigos = view.findViewById(R.id.textAmigos);
         textPartidas = view.findViewById(R.id.textPartidas);
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
+        buttonAbrirLoja = view.findViewById(R.id.buttonAbrirLoja);
         textNomeUsuario = view.findViewById(R.id.textNomeUsuario);
 
         FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
@@ -57,6 +58,14 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), EditarPerfilActivity.class);
+                startActivity(i);
+            }
+        });
+
+        buttonAbrirLoja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), LojaFragment.class);
                 startActivity(i);
             }
         });
