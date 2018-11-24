@@ -9,6 +9,13 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/background_degrade"
+        android:src="@drawable/esportesocial" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,9 +46,11 @@
 
     </LinearLayout>
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="15dp" />
+        android:layout_height="15dp"
+        android:background="@drawable/background_degrade"
+        android:orientation="horizontal"></LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
