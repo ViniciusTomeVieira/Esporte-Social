@@ -54,4 +54,8 @@ public class UsuarioFirebase {
         }
         return  usuario;
     }
+
+    public static String getIdentificadorUsuario(){
+        return getUsuarioAtual().getUid();
+    }
 }
