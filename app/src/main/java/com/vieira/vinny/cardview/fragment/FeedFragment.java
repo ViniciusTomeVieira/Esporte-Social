@@ -66,28 +66,19 @@ public class FeedFragment extends Fragment {
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        listarFeed();
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        feedRef.removeEventListener( valueEventListenerFeed );
-    }
 
 
 
         public void recuperaPostagens(){
             FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
-            DatabaseReference postaagensBanco = referencia.child("partidas");
+            DatabaseReference postaagensBanco = feedRef;
             postaagensBanco.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for( DataSnapshot ds : dataSnapshot.getChildren() ){
-                        listaFeed =
+                        Postagem p = ds.getValue(Postagem.class);
+                        listaFeed.add(p);
                     }
                 }
 
@@ -97,12 +88,12 @@ public class FeedFragment extends Fragment {
                 }
             });
                 }
-            });
+
 
         }
 
 
-    }
+    
 
 
 
