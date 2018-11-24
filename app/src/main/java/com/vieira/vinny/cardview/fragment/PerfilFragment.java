@@ -4,6 +4,8 @@ package com.vieira.vinny.cardview.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PerfilFragment extends Fragment {
         private ProgressBar progressBar;
         private CircleImageView imagePerfil;
-        private TextView textNivel, textAmigos, textPartidas, textNomeUsuario;
+        private TextView textNivel, textAmigos, textPartidas, textNomeUsuario, textEntendi;
         private Button buttonEditarPerfil, buttonAbrirLoja;
 
     public PerfilFragment() {
@@ -48,6 +50,7 @@ public class PerfilFragment extends Fragment {
         buttonEditarPerfil = view.findViewById(R.id.buttonEditarPerfil);
         buttonAbrirLoja = view.findViewById(R.id.buttonAbrirLoja);
         textNomeUsuario = view.findViewById(R.id.textNomeUsuario);
+        textEntendi = view.findViewById(R.id.textEntendi);
 
         FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
         textNomeUsuario.setText(usuarioPerfil.getDisplayName());
@@ -65,8 +68,8 @@ public class PerfilFragment extends Fragment {
         buttonAbrirLoja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), LojaFragment.class);
-                startActivity(i);
+                buttonAbrirLoja.setVisibility(View.GONE);
+                textEntendi.setVisibility(View.GONE);
             }
         });
 
