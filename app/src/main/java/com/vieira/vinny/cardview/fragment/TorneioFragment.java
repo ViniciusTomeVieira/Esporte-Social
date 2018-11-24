@@ -13,6 +13,7 @@ import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.adapter.TorneioAdapter;
 import com.vieira.vinny.cardview.model.Torneio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class TorneioFragment extends Fragment {
     private RecyclerView recyclerView;
-    private List<Torneio> listTorneio;
+    private List<Torneio> listTorneio = new ArrayList<Torneio>();
     private Torneio torneio;
 
     public TorneioFragment() {
@@ -31,24 +32,26 @@ public class TorneioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        initComponents(container);
+        View view = inflater.inflate(R.layout.fragment_torneio, container, false);
+        initComponents(view);
+        populaLista();
+        loadManager(view);
         loadAdapter();
-        loadManager(container);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_torneio, container, false);
+        return view;
     }
 
     private void loadAdapter() {
-        TorneioAdapter adapter = new TorneioAdapter(listTorneio);
+        TorneioAdapter adapter = new TorneioAdapter(listTorneio, getActivity());
         recyclerView.setAdapter(adapter);
     }
 
-    private void loadManager(ViewGroup container) {
-        RecyclerView.LayoutManager manager =  new LinearLayoutManager(container.getContext());
-        recyclerView.setLayoutManager(manager);
+    private void loadManager(View view) {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
     }
 
-    private void initComponents(ViewGroup view) {
+    private void initComponents(View view) {
         recyclerView = view.findViewById(R.id.recyclerView);
     }
 

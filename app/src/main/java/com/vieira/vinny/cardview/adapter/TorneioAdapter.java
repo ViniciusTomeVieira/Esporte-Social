@@ -1,5 +1,6 @@
 package com.vieira.vinny.cardview.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,8 +16,11 @@ import java.util.List;
 
 public class TorneioAdapter extends RecyclerView.Adapter<TorneioAdapter.MyViewAdapter> {
     private List<Torneio> listaTorneio;
-    public TorneioAdapter(List<Torneio> l) {
+    private Context context;
+
+    public TorneioAdapter(List<Torneio> l, Context context) {
         listaTorneio = l;
+        this.context = context;
     }
 
     @NonNull
