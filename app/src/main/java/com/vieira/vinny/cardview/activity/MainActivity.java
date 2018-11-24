@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // Configura Toolbar
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle("esporte_social"); // Titulo da toolbar
+        toolbar.setTitle("Esporte Social"); // Titulo da toolbar
         setSupportActionBar(toolbar);
 
         // Configurações de objetos
