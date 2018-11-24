@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -18,22 +17,16 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.vieira.vinny.cardview.R;
-import com.vieira.vinny.cardview.adapter.PostagemAdapter;
 import com.vieira.vinny.cardview.fragment.CriarPartidaFragment;
 import com.vieira.vinny.cardview.fragment.FeedFragment;
 import com.vieira.vinny.cardview.fragment.LojaFragment;
 import com.vieira.vinny.cardview.fragment.PerfilFragment;
 import com.vieira.vinny.cardview.fragment.TorneioFragment;
 import com.vieira.vinny.cardview.helper.ConfiguracaoFirebase;
-import com.vieira.vinny.cardview.model.Postagem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerPostagem;
-    private List<Postagem> postagens = new ArrayList<>();
     private FirebaseAuth autenticacao;
 
     @Override
@@ -57,22 +50,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
 
 
-
-
-
-
-
-
-        recyclerPostagem = findViewById(R.id.recyclerPostagem);
-
-        //Define layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerPostagem.setLayoutManager(layoutManager);
-
-        //Define adapter
-        this.prepararPostagens();
-        PostagemAdapter adapter = new PostagemAdapter(postagens);
-        recyclerPostagem.setAdapter(adapter);
     }
     private void configuraBottomNavigationView(){
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigation);
@@ -143,9 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void prepararPostagens(){
-
-    }
 
     public void selecionarTela(View view){
         view.setBackgroundColor(2);

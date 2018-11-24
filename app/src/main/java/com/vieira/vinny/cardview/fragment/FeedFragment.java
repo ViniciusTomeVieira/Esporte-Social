@@ -2,28 +2,40 @@ package com.vieira.vinny.cardview.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.vieira.vinny.cardview.R;
-import com.vieira.vinny.cardview.adapter.PostagemAdapter;
+import com.vieira.vinny.cardview.adapter.AdapterFeed;
 import com.vieira.vinny.cardview.helper.ConfiguracaoFirebase;
+import com.vieira.vinny.cardview.helper.UsuarioFirebase;
 import com.vieira.vinny.cardview.model.Postagem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FeedFragment extends Fragment {
-    private RecyclerView recyclerPostagem;
-    private List<Postagem> postagens = new ArrayList<>();
+    private RecyclerView recyclerFeed;
+    private AdapterFeed adapterFeed;
+    private List<Postagem> listaFeed = new ArrayList<>();
+    private ValueEventListener valueEventListenerFeed;
+    private DatabaseReference feedRef;
+    private String idUsuarioLogado;
     public FeedFragment() {
         // Required empty public constructor
     }
@@ -35,18 +47,63 @@ public class FeedFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
-        recyclerPostagem = view.findViewById(R.id.recyclerPostagem);
+        //Configurações iniciais
+        idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
+        feedRef = ConfiguracaoFirebase.getFireBase()
+                .child("partidas")
+                .child( idUsuarioLogado );
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerPostagem.setLayoutManager(layoutManager);
-        PostagemAdapter adapter = new PostagemAdapter(postagens);
-        recyclerPostagem.setAdapter(adapter);
+        //Inicializar componentes
+        recyclerFeed = view.findViewById(R.id.recyclerPostagem);
 
+        //Configura recyclerview
+        adapterFeed = new AdapterFeed(listaFeed, getActivity() );
+        recyclerFeed.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        recyclerFeed.setAdapter( adapterFeed );
 
         return view;
 
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        listarFeed();
+    }
 
-}
+    @Override
+    public void onStop() {
+        super.onStop();
+        feedRef.removeEventListener( valueEventListenerFeed );
+    }
+
+
+
+        public void recuperaPostagens(){
+            FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
+            DatabaseReference postaagensBanco = referencia.child("partidas");
+            postaagensBanco.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for( DataSnapshot ds : dataSnapshot.getChildren() ){
+                        listaFeed =
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+                }
+            });
+
+        }
+
+
+    }
+
+
+
+
