@@ -4,20 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="60dp"
         app:contentPadding="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Torneio valendo leitão"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,19 +52,10 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_titulo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="Torneio valendo leitão"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
                         android:id="@+id/tv_local"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:layout_marginBottom="5dp"
                         android:drawableStart="@drawable/ic_cidade_24dp"
                         android:drawableTint="@color/colorAccent"
@@ -61,6 +65,7 @@
                         android:id="@+id/tv_taxa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:layout_marginBottom="5dp"
                         android:drawableStart="@drawable/ic_monetization_on_black_24dp"
                         android:drawableTint="@color/colorAccent"
@@ -70,6 +75,7 @@
                         android:id="@+id/tv_localizacao"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:drawableStart="@drawable/ic_my_location_black_24dp"
                         android:drawableTint="@color/colorAccent"
                         android:text="Arena 107" />
@@ -87,6 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:drawableStart="@drawable/ic_group_black_24dp"
                     android:drawableTint="@color/colorAccent"
@@ -97,6 +104,7 @@
                     android:id="@+id/tv_participantes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="6"
                     android:text="1/15"
@@ -107,10 +115,15 @@
                 android:id="@+id/btn_inscrever"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/shape_gradient"
                 android:drawableEnd="@drawable/ic_touch_app_black_24dp"
                 android:text="@string/inscrever"
                 android:textColor="@android:color/white" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
