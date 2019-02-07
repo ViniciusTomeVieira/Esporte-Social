@@ -21,7 +21,7 @@
         <activity
             android:name=".activity.EditarPerfilActivity"
             android:parentActivityName=".activity.MainActivity"></activity>
-        <activity android:name=".CriarTorneio"></activity>
+        <activity android:name=".activity.CriarTorneio"></activity>
     </application>
 
 </manifest>

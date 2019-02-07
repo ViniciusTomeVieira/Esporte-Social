@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Esporte Social"); // Titulo da toolbar
+        toolbar.setLogo(R.drawable.ic_add_24dp);
         setSupportActionBar(toolbar);
 
         // Configurações de objetos

@@ -6,15 +6,25 @@ public class Torneio {
     private String taxa;
     private String local;
     private String inscritos;
+    private String modalidade;
     private int imagemTorneio;
 
-    public Torneio(String titulo, String cidade, String taxa, String local, String inscritos, int imagemTorneio) {
+    public Torneio(String titulo, String cidade, String taxa, String local, String inscritos, int imagemTorneio,String modalidade) {
         this.titulo = titulo;
         this.cidade = cidade;
         this.taxa = taxa;
         this.local = local;
         this.inscritos = inscritos;
+        this.modalidade = modalidade;
         this.imagemTorneio = imagemTorneio;
+    }
+
+    public String getModalidade() {
+        return modalidade;
+    }
+
+    public void setModalidade(String modalidade) {
+        this.modalidade = modalidade;
     }
 
     public String getTitulo() {
