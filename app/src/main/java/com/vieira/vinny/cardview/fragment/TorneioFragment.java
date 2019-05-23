@@ -4,6 +4,7 @@ package com.vieira.vinny.cardview.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,19 +13,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.activity.CriarTorneio;
 import com.vieira.vinny.cardview.activity.MainActivity;
 import com.vieira.vinny.cardview.adapter.TorneioAdapter;
+import com.vieira.vinny.cardview.helps.Helper;
+import com.vieira.vinny.cardview.model.Postagem;
 import com.vieira.vinny.cardview.model.Torneio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,23 +38,29 @@ import java.util.List;
  */
 public class TorneioFragment extends Fragment {
     private RecyclerView recyclerView;
-    private List<Torneio> listTorneio = new ArrayList<Torneio>();
+    private List<Torneio> listTorneio ;
     private Torneio torneios;
     private EditText etBusca;
-    private Button btnCriaPartida;
-    private DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    private FloatingActionButton btnCriaPartida;
+    private DatabaseReference reference ;
+    private TorneioAdapter adapter;
+
+    private ValueEventListener valueEventListenerTorneio;
 
     public TorneioFragment() {
         // Required empty public constructor
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        reference = FirebaseDatabase.getInstance().getReference();
         View view = inflater.inflate(R.layout.fragment_torneio, container, false);
+        listTorneio = new ArrayList<Torneio>();
         initComponents(view);
-//        populaLista();
+        populaLista(view);
         loadManager(view);
         loadAdapter();
         // Inflate the layout for this fragment
@@ -56,8 +68,14 @@ public class TorneioFragment extends Fragment {
     }
 
     private void loadAdapter() {
-        TorneioAdapter adapter = new TorneioAdapter(listTorneio, getActivity());
+        adapter = new TorneioAdapter(listTorneio, getActivity());
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Helper.listar(valueEventListenerTorneio, reference, listTorneio, new Torneio(), adapter);
     }
 
     private void loadManager(View view) {
@@ -77,15 +95,22 @@ public class TorneioFragment extends Fragment {
             }
         });
     }
-
-    private void populaLista(){
+    private void populaLista(View view){
         DatabaseReference torneio = reference.child("torneio");
-        torneio.addValueEventListener(new ValueEventListener() {
+        Query torneioPesquisa = torneio.orderByValue();
+        torneioPesquisa.keepSynced(true);
+        torneioPesquisa.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                   torneios = dataSnapshot.getValue(Torneio.class);
-                   listTorneio.add(torneios);
+                if (dataSnapshot.exists()) {
+                    Torneio t = new Torneio();
+                    for ( DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        t = postSnapshot.getValue(Torneio.class);
+                        listTorneio.add(t);
+                    }
+                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

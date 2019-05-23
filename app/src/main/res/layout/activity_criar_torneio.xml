@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_degrade"
     tools:context=".activity.CriarTorneio">
 
     <LinearLayout
@@ -13,104 +12,137 @@
         android:layout_margin="5dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/esportesocial" />
+        </LinearLayout>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Localização">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/nome_torneio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_flag_black_24dp"
                 android:hint="Nome Torneio"
-                android:inputType="text"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="18sp" />
-
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/cidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_cidade_24dp"
                 android:hint="Cidade"
-                android:inputType="text"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/taxa_inscricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Taxa de inscrição"
-                android:inputType="numberDecimal"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:drawableLeft="@drawable/ic_monetization_on_black_24dp"
+                android:hint="Taxa de Inscrição"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:hint="Local">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Local"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/participantes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Times para participar"
-                android:inputType="number"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:drawableLeft="@drawable/ic_group_black_24dp"
+                android:hint="Participantes"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/modalidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:drawableLeft="@drawable/ic_settings_black_24dp"
                 android:hint="Modalidade"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btn_criar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_loja"
-            android:drawableStart="@drawable/ic_criar_partida_24dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/darker_gray"
             android:lineSpacingExtra="14sp"
-            android:text="Criar!"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:typeface="monospace" />
+            android:text="Criar Torneio"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:typeface="sans" />
 
     </LinearLayout>
 </ScrollView>

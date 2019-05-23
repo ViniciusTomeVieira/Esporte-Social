@@ -64,8 +64,6 @@ public class EditarPerfilActivity extends AppCompatActivity {
                 usuarioLogado.setNome(nomeAtualizado);
                 usuarioLogado.atualizar();
                 Toast.makeText(EditarPerfilActivity.this, "Dados atualizados com sucesso!", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 

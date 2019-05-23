@@ -19,6 +19,10 @@ public class Torneio {
         this.imagemTorneio = imagemTorneio;
     }
 
+    public Torneio() {
+        this.titulo = titulo;
+    }
+
     public String getModalidade() {
         return modalidade;
     }

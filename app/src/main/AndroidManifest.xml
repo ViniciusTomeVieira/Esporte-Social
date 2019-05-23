@@ -20,8 +20,9 @@
         <activity android:name=".activity.CadastroActivity" />
         <activity
             android:name=".activity.EditarPerfilActivity"
-            android:parentActivityName=".activity.MainActivity"></activity>
-        <activity android:name=".activity.CriarTorneio"></activity>
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.CriarTorneio" />
+        <activity android:name=".activity.ParticiparTorneioActivity"></activity>
     </application>
 
 </manifest>

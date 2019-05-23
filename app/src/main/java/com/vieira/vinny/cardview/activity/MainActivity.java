@@ -124,6 +124,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void selecionarTela(View view){
         view.setBackgroundColor(2);
-
     }
 }

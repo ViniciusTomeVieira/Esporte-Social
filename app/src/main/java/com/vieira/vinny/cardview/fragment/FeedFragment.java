@@ -23,6 +23,7 @@ import com.vieira.vinny.cardview.R;
 import com.vieira.vinny.cardview.adapter.AdapterFeed;
 import com.vieira.vinny.cardview.helper.ConfiguracaoFirebase;
 import com.vieira.vinny.cardview.helper.UsuarioFirebase;
+import com.vieira.vinny.cardview.helps.Helper;
 import com.vieira.vinny.cardview.model.Postagem;
 
 import java.util.ArrayList;
@@ -39,10 +40,10 @@ public class FeedFragment extends Fragment {
     private DatabaseReference feedRef = ConfiguracaoFirebase.getFireBase();
     private String idUsuarioLogado;
     protected DatabaseReference partidasRef = ConfiguracaoFirebase.getFireBase();
+    private ValueEventListener valueEventListenerFeed;
     public FeedFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,26 +52,21 @@ public class FeedFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
         //Configurações iniciais
 
-
         //Inicializar componentes
         recyclerFeed = view.findViewById(R.id.recyclerPostagem);
 
         //Configura recyclerview
         recyclerFeed.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
         partidasRef = feedRef.child("partidas").child("partida");
-        listaFeed = recuperaPostagens();
         adapterFeed = new AdapterFeed(listaFeed, getActivity() );
         recyclerFeed.setAdapter( adapterFeed );
-
-
         return view;
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        recuperaPostagens();
+        Helper.listar(valueEventListenerFeed, partidasRef, listaFeed, new Postagem(), adapterFeed);
     }
 
     public List<Postagem> recuperaPostagens() {
@@ -93,13 +89,4 @@ public class FeedFragment extends Fragment {
         return listaFeedInterna;
     }
 
-
-
-        }
-
-
-
-
-
-
-
+}
